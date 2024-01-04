@@ -37,7 +37,7 @@ func main() {
 	r.POST("/transactions", auth.AuthenticationMiddleware(), handlers.CreateTransaction(db))
 	r.GET("/transactions/my-transactions", auth.AuthenticationMiddleware(), handlers.GetMyTransaction(db))
 	r.GET("/transactions/user-transactions", auth.AuthorizationMiddleware(), handlers.GetTransaction(db))
-	r.Run(":8080")
+	r.Run()
 }
 func insertSampleDataGorm(db *gorm.DB) {
 	sampleUsers := []models.User{
